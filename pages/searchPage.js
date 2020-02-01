@@ -11,9 +11,15 @@ class SearchPage extends Component {
     };
   }
 
+  search = () => {
+    if (this.state.searchTerm.length > 0) {
+      return this.setState({searchTerm: 'searching'});
+    }
+  };
+
   render() {
     return (
-      <View>
+      <View style={{flexDirection: 'column', height: '100%'}}>
         <View style={styles.headerNav}>
           <Text style={styles.pageTitle}>SWStarter</Text>
         </View>
@@ -50,6 +56,24 @@ class SearchPage extends Component {
             value={this.state.searchTerm}
             placeholder="e.g. Chewbacca, Yoda"
           />
+        </View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            padding: 30,
+            alignItems: 'center',
+            width: '100%',
+          }}>
+          <TouchableOpacity
+            style={
+              this.state.searchTerm.length > 0
+                ? styles.buttonActive
+                : styles.buttonInactive
+            }
+            onPress={this.search}>
+            <Text style={styles.textButton}>SEARCH</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

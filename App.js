@@ -5,7 +5,7 @@ import SearchPage from './pages/searchPage';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flexDirection: 'column', flex: 1}}>
       <SearchPage />
     </SafeAreaView>
   );
