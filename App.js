@@ -1,16 +1,7 @@
-import React, {Component} from 'react';
-import {SafeAreaView, View, Text} from 'react-native';
-import styles from './styles';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 
-class SearchPage extends Component {
-  render() {
-    return (
-      <View>
-        <Text style={styles.pageTitle}>SWStarter</Text>
-      </View>
-    );
-  }
-}
+import SearchPage from './pages/searchPage';
 
 const App = () => {
   return (
