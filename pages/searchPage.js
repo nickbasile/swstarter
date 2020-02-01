@@ -7,7 +7,7 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      searchScope: 'person',
+      searchScope: 'people',
     };
   }
 
@@ -19,19 +19,19 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <View style={{flexDirection: 'column', height: '100%'}}>
-        <View style={{margin: 30}}>
+      <View style={{margin: 30, flexDirection: 'column', height: '100%'}}>
+        <View>
           <Text style={styles.textParagraph}>What are you searching for ?</Text>
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
             <View style={styles.radioGroup}>
               <TouchableOpacity
                 style={
-                  this.state.searchScope === 'person'
+                  this.state.searchScope === 'people'
                     ? styles.radioChecked
                     : styles.radioEmpty
                 }
-                onPress={() => this.setState({searchScope: 'person'})}
+                onPress={() => this.setState({searchScope: 'people'})}
               />
               <Text style={styles.textRadio}>People</Text>
             </View>
@@ -58,7 +58,7 @@ class SearchPage extends Component {
           style={{
             position: 'absolute',
             bottom: 0,
-            padding: 30,
+            paddingBottom: 60,
             alignItems: 'center',
             width: '100%',
           }}>

@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     letterSpacing: defaultStyles.letterSpacing,
     color: defaultStyles.colors.gray,
+    textAlign: 'center',
   },
   textParagraph: {
     fontFamily: defaultStyles.fonts.primaryRegular,
