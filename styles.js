@@ -18,13 +18,20 @@ const defaultStyles = {
 };
 
 const styles = StyleSheet.create({
-  headerNav: {
+  navBar: {
     borderBottomColor: defaultStyles.colors.green,
     borderBottomWidth: 1,
-    padding: 16,
-    alignItems: 'center',
+    height: 70,
+  },
+  navBarActions: {
+    color: defaultStyles.colors.green,
   },
   pageTitle: {
+    borderBottomWidth: 1,
+    borderBottomColor: defaultStyles.colors.gray,
+    paddingBottom: 9.5,
+  },
+  navTitle: {
     fontFamily: 'Poppins-Bold',
     fontSize: 18,
     letterSpacing: defaultStyles.lineSpacing,

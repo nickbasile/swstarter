@@ -13,16 +13,13 @@ class SearchPage extends Component {
 
   search = () => {
     if (this.state.searchTerm.length > 0) {
-      return this.setState({searchTerm: 'searching'});
+      return this.props.navigation.navigate('Results', this.state);
     }
   };
 
   render() {
     return (
       <View style={{flexDirection: 'column', height: '100%'}}>
-        <View style={styles.headerNav}>
-          <Text style={styles.pageTitle}>SWStarter</Text>
-        </View>
         <View style={{margin: 30}}>
           <Text style={styles.textParagraph}>What are you searching for ?</Text>
           <View
