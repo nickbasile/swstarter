@@ -1,8 +1,8 @@
-const baseURL = 'https://swapi.co/api/';
+const baseURL = 'https://swapi.co/api';
 
 let search = (queryScope, searchTerm) => {
   return new Promise((resolve, reject) => {
-    const searchURL = `${baseURL}${queryScope}/?search=${encodeURI(searchTerm)}`;
+    const searchURL = `${baseURL}/${queryScope}/?search=${encodeURI(searchTerm)}`;
 
     fetch(searchURL)
       .then(response => response.json())
@@ -17,7 +17,7 @@ let search = (queryScope, searchTerm) => {
 
 let fetchFilms = () => {
   return new Promise((resolve, reject) => {
-    fetch(`${baseURL}films`)
+    fetch(`${baseURL}/films`)
       .then(response => response.json())
       .then(responseJson => {
         resolve(responseJson);
@@ -30,7 +30,7 @@ let fetchFilms = () => {
 
 let fetchPeople = () => {
   return new Promise((resolve, reject) => {
-    fetch(`${baseURL}people`)
+    fetch(`${baseURL}/people`)
       .then(response => response.json())
       .then(responseJson => {
         resolve(responseJson);

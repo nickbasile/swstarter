@@ -16,51 +16,35 @@ class ResultsPage extends Component {
 
   componentDidMount() {
     this.search();
-    this.fetchSupplementalData();
   }
 
   search = () => {
-    let navigation = this.props.navigation;
+    const navigation = this.props.navigation;
 
-    return api
-      .search(
-        navigation.getParam('searchScope'),
-        navigation.getParam('searchTerm'),
-      )
-      .then(response => {
-        setTimeout(() => {
-          this.setState({results: response.results, searching: false});
-        }, 1000);
-      })
-      .catch(error => {
-        //Add error handling
-      });
-  };
+    const search = api.search(
+      navigation.getParam('searchScope'),
+      navigation.getParam('searchTerm'),
+    );
 
-  fetchSupplementalData = () => {
+    let supplementalData = {key: 'people', query: api.fetchPeople()};
+
     if (this.searchingForPerson()) {
-      return api
-        .fetchFilms()
-        .then(response => {
-          setTimeout(() => {
-            this.setState({films: response.results});
-          }, 1000);
-        })
-        .catch(error => {
-          //Add error handling
-        });
+      supplementalData = {key: 'films', query: api.fetchFilms()};
     }
 
-    return api
-      .fetchPeople()
-      .then(response => {
-        setTimeout(() => {
-          this.setState({people: response.results});
-        }, 1000);
-      })
-      .catch(error => {
-        //Add error handling
-      });
+    const that = this;
+
+    Promise.all([search, supplementalData.query]).then(function(values) {
+      let newState = {
+        results: values[0].results,
+        searching: false,
+      };
+      newState[supplementalData.key] = values[1].results;
+
+      setTimeout(() => {
+        that.setState(newState);
+      }, 1000);
+    });
   };
 
   navigateToSearch = () => {
