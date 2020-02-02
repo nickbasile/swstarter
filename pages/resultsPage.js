@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
-import {styles, baseStyles} from '../styles';
+import {styles} from '../styles';
 import * as api from '../api';
 
 class ResultsPage extends Component {
@@ -8,16 +8,20 @@ class ResultsPage extends Component {
     super(props);
     this.state = {
       results: [],
+      films: [],
+      people: [],
       searching: true,
     };
   }
 
   componentDidMount() {
     this.search();
+    this.fetchSupplementalData();
   }
 
   search = () => {
     let navigation = this.props.navigation;
+
     return api
       .search(
         navigation.getParam('searchScope'),
@@ -33,18 +37,50 @@ class ResultsPage extends Component {
       });
   };
 
+  fetchSupplementalData = () => {
+    if (this.searchingForPerson()) {
+      return api
+        .fetchFilms()
+        .then(response => {
+          setTimeout(() => {
+            this.setState({films: response.results});
+          }, 1000);
+        })
+        .catch(error => {
+          //Add error handling
+        });
+    }
+
+    return api
+      .fetchPeople()
+      .then(response => {
+        setTimeout(() => {
+          this.setState({people: response.results});
+        }, 1000);
+      })
+      .catch(error => {
+        //Add error handling
+      });
+  };
+
   navigateToSearch = () => {
-    return this.props.navigation.navigate('Home', this.state);
+    return this.props.navigation.navigate('Home');
   };
 
   navigateToResult = result => {
     let navigation = this.props.navigation;
 
     if (this.searchingForPerson()) {
-      return navigation.navigate('Person', JSON.stringify(result));
+      return navigation.navigate('Person', {
+        person: JSON.stringify(result),
+        films: JSON.stringify(this.state.films),
+      });
     }
 
-    return navigation.navigate('Film', JSON.stringify(result));
+    return navigation.navigate('Film', {
+      film: JSON.stringify(result),
+      people: JSON.stringify(this.state.people),
+    });
   };
 
   searchingForPerson = () => {
@@ -97,7 +133,7 @@ class ResultsPage extends Component {
                   </Text>
                   <TouchableOpacity
                     style={[styles.buttonActive, {marginTop: 15}]}
-                    onPress={this.navigateToResult(result)}>
+                    onPress={() => this.navigateToResult(result)}>
                     <Text style={styles.textButton}>SEE DETAILS</Text>
                   </TouchableOpacity>
                 </View>

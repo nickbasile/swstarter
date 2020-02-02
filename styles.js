@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     fontFamily: baseStyles.fonts.primaryRegular,
     fontSize: 14,
     letterSpacing: baseStyles.letterSpacing,
-    color: baseStyles.colors.grayDarkest,
+    color: baseStyles.colors.blue,
   },
   textRadio: {
     fontFamily: baseStyles.fonts.primaryBold,

@@ -15,4 +15,30 @@ let search = (queryScope, searchTerm) => {
   });
 };
 
-export {search};
+let fetchFilms = () => {
+  return new Promise((resolve, reject) => {
+    fetch(`${baseURL}films`)
+      .then(response => response.json())
+      .then(responseJson => {
+        resolve(responseJson);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+let fetchPeople = () => {
+  return new Promise((resolve, reject) => {
+    fetch(`${baseURL}people`)
+      .then(response => response.json())
+      .then(responseJson => {
+        resolve(responseJson);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+
+export {search, fetchFilms, fetchPeople};

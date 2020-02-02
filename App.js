@@ -2,6 +2,7 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SearchPage from './pages/searchPage';
 import ResultsPage from './pages/resultsPage';
+import PersonPage from './pages/personPage';
 import {styles, baseStyles} from './styles';
 
 const AppNavigator = createStackNavigator(
@@ -11,6 +12,12 @@ const AppNavigator = createStackNavigator(
     },
     Results: {
       screen: ResultsPage,
+      navigationOptions: {
+        headerBackTitleVisible: false,
+      },
+    },
+    Person: {
+      screen: PersonPage,
       navigationOptions: {
         headerBackTitleVisible: false,
       },
