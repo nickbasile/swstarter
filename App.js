@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import SearchPage from './pages/searchPage';
 import ResultsPage from './pages/resultsPage';
 import PersonPage from './pages/personPage';
+import FilmPage from './pages/filmPage';
 import {styles, baseStyles} from './styles';
 
 const AppNavigator = createStackNavigator(
@@ -18,6 +19,12 @@ const AppNavigator = createStackNavigator(
     },
     Person: {
       screen: PersonPage,
+      navigationOptions: {
+        headerBackTitleVisible: false,
+      },
+    },
+    Film: {
+      screen: FilmPage,
       navigationOptions: {
         headerBackTitleVisible: false,
       },

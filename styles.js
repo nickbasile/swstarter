@@ -143,7 +143,8 @@ const styles = StyleSheet.create({
     marginTop: 130,
   },
   container: {
-    margin: 30,
+    marginTop: 30,
+    marginHorizontal: 30,
     flexDirection: 'column',
     height: '100%',
   },
