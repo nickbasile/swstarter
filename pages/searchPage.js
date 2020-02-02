@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles';
+import {styles} from '../styles';
 
 class SearchPage extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <View style={{margin: 30, flexDirection: 'column', height: '100%'}}>
+      <View style={styles.container}>
         <View>
           <Text style={styles.textParagraph}>What are you searching for ?</Text>
           <View
@@ -54,14 +54,7 @@ class SearchPage extends Component {
             placeholder="e.g. Chewbacca, Yoda"
           />
         </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            paddingBottom: 60,
-            alignItems: 'center',
-            width: '100%',
-          }}>
+        <View style={styles.buttonGroupBottom}>
           <TouchableOpacity
             style={
               this.state.searchTerm.length > 0

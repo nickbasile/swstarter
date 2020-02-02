@@ -2,7 +2,7 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SearchPage from './pages/searchPage';
 import ResultsPage from './pages/resultsPage';
-import styles from './styles';
+import {styles, baseStyles} from './styles';
 
 const AppNavigator = createStackNavigator(
   {
@@ -22,9 +22,12 @@ const AppNavigator = createStackNavigator(
       title: 'SWStarter',
       headerTitleStyle: styles.navTitle,
       headerStyle: styles.navBar,
-      headerTintColor: styles.navBarActions.color,
+      headerTintColor: baseStyles.colors.green,
       cardStyle: {
         backgroundColor: '#ffffff',
+      },
+      headerBackTitleStyle: {
+        padding: 30,
       },
     },
   },

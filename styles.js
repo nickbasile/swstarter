@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const defaultStyles = {
+const baseStyles = {
   colors: {
     black: '#000000',
     grayDarkest: 'rgb(56, 56, 56)',
@@ -19,76 +19,73 @@ const defaultStyles = {
 
 const styles = StyleSheet.create({
   navBar: {
-    borderBottomColor: defaultStyles.colors.green,
+    borderBottomColor: baseStyles.colors.green,
     borderBottomWidth: 1,
     height: 70,
   },
-  navBarActions: {
-    color: defaultStyles.colors.green,
-  },
   pageTitle: {
     borderBottomWidth: 1,
-    borderBottomColor: defaultStyles.colors.gray,
+    borderBottomColor: baseStyles.colors.gray,
     paddingBottom: 9.5,
   },
   navTitle: {
     fontFamily: 'Poppins-Bold',
     fontSize: 18,
-    letterSpacing: defaultStyles.lineSpacing,
-    color: defaultStyles.colors.green,
+    letterSpacing: baseStyles.lineSpacing,
+    color: baseStyles.colors.green,
   },
   headerPrimary: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     fontSize: 18,
-    letterSpacing: defaultStyles.lineSpacing,
-    color: defaultStyles.colors.grayDarkest,
+    letterSpacing: baseStyles.lineSpacing,
+    color: baseStyles.colors.grayDarkest,
   },
   headerSecondary: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     fontSize: 14,
-    letterSpacing: defaultStyles.lineSpacing,
-    color: defaultStyles.colors.grayDarkest,
+    letterSpacing: baseStyles.lineSpacing,
+    color: baseStyles.colors.grayDarkest,
   },
   textStatus: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     fontSize: 14,
-    letterSpacing: defaultStyles.letterSpacing,
-    color: defaultStyles.colors.gray,
+    letterSpacing: baseStyles.letterSpacing,
+    color: baseStyles.colors.gray,
     textAlign: 'center',
   },
   textParagraph: {
-    fontFamily: defaultStyles.fonts.primaryRegular,
+    fontFamily: baseStyles.fonts.primaryRegular,
     fontSize: 14,
-    letterSpacing: defaultStyles.letterSpacing,
-    color: defaultStyles.colors.grayDarkest,
+    letterSpacing: baseStyles.letterSpacing,
+    color: baseStyles.colors.grayDarkest,
   },
   textLink: {
-    fontFamily: defaultStyles.fonts.primaryRegular,
+    fontFamily: baseStyles.fonts.primaryRegular,
     fontSize: 14,
-    letterSpacing: defaultStyles.letterSpacing,
-    color: defaultStyles.colors.grayDarkest,
+    letterSpacing: baseStyles.letterSpacing,
+    color: baseStyles.colors.grayDarkest,
   },
   textRadio: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     fontSize: 14,
-    letterSpacing: defaultStyles.lineSpacing,
-    color: defaultStyles.colors.grayDarkest,
+    letterSpacing: baseStyles.lineSpacing,
+    color: baseStyles.colors.grayDarkest,
     marginLeft: 10,
   },
   textButton: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     textAlign: 'center',
     lineHeight: 22,
     letterSpacing: 0,
-    color: defaultStyles.colors.white,
+    color: baseStyles.colors.white,
   },
   input: {
-    fontFamily: defaultStyles.fonts.primaryBold,
+    fontFamily: baseStyles.fonts.primaryBold,
     fontSize: 14,
-    letterSpacing: defaultStyles.letterSpacing,
-    color: defaultStyles.colors.black,
+    letterSpacing: baseStyles.letterSpacing,
+    color: baseStyles.colors.black,
     borderWidth: 1,
-    borderColor: defaultStyles.colors.grayDark,
+    borderColor: baseStyles.colors.grayDark,
     padding: 10,
     borderRadius: 4,
     marginTop: 15,
@@ -98,7 +95,7 @@ const styles = StyleSheet.create({
     width: 13,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: defaultStyles.colors.gray,
+    borderColor: baseStyles.colors.gray,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -107,7 +104,7 @@ const styles = StyleSheet.create({
     width: 13,
     borderRadius: 10,
     borderWidth: 5,
-    borderColor: defaultStyles.colors.blue,
+    borderColor: baseStyles.colors.blue,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -118,16 +115,38 @@ const styles = StyleSheet.create({
   },
   buttonInactive: {
     width: '100%',
-    backgroundColor: defaultStyles.colors.gray,
+    backgroundColor: baseStyles.colors.gray,
     borderRadius: 26.5,
     padding: 8,
   },
   buttonActive: {
     width: '100%',
-    backgroundColor: defaultStyles.colors.green,
+    backgroundColor: baseStyles.colors.green,
     borderRadius: 26.5,
     padding: 8,
   },
+  buttonGroupBottom: {
+    position: 'absolute',
+    bottom: 0,
+    paddingBottom: 60,
+    alignItems: 'center',
+    width: '100%',
+  },
+  result: {
+    paddingVertical: 19.5,
+    borderBottomWidth: 1,
+    borderBottomColor: baseStyles.colors.gray,
+  },
+  statusMessage: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 130,
+  },
+  container: {
+    margin: 30,
+    flexDirection: 'column',
+    height: '100%',
+  },
 });
 
-export default styles;
+export {styles, baseStyles};

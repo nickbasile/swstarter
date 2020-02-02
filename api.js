@@ -2,7 +2,7 @@ const baseURL = 'https://swapi.co/api/';
 
 let search = (queryScope, searchTerm) => {
   return new Promise((resolve, reject) => {
-    const searchURL = `${baseURL}${queryScope}/?search=${searchTerm}`;
+    const searchURL = `${baseURL}${queryScope}/?search=${encodeURI(searchTerm)}`;
 
     fetch(searchURL)
       .then(response => response.json())
